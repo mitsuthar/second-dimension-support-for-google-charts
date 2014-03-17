@@ -1,0 +1,41 @@
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript">
+    sample_data=[];
+	temp=['student_name','subject','marks1','marks2','marks3'];
+	sample_data.push(temp);
+	temp=['lavanya','physics',90,75,60];
+	sample_data.push(temp);
+	temp=['lavanya','chemistry',80,45,35];
+	sample_data.push(temp);
+	temp=['lavanya','maths',50,60,0];
+	sample_data.push(temp);
+	temp=['lavanya','english',74,65,55];
+	sample_data.push(temp);
+	temp=['mit','physics',89,71,45];
+	sample_data.push(temp);
+	temp=['mit','chemistry',56,47,100];
+	sample_data.push(temp);
+	temp=['mit','maths',90,41,63];
+	sample_data.push(temp);	
+	temp=['mit','english',76,61,95];
+	sample_data.push(temp);
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(process_second_dimension(sample_data));
+
+        var options = {
+          title: 'Marks by subject',
+          vaxis: {'minValue': 0,},
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
